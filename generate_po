@@ -32,7 +32,7 @@ if not os.path.isfile('./locale/all_files.py'):
 stuff = subprocess.run([sys.executable, './locale/all_files.py'], capture_output=True)
 content = stuff.stdout
 
-subprocess.run(['xgettext', '--files-from=-', '--from-code=UTF-8', '--keyword', '--keyword=_', '-o', file],
+subprocess.run(['xgettext', '--files-from=-', '--from-code=UTF-8', '--language=Python', '--extract-all', '-o', file],
                input=content)
 with open(file) as f:
     data = f.read()
